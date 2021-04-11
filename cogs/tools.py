@@ -19,7 +19,7 @@ class Tools(Cog):
         """
         Returns bot system info/version
         """
-        verEmbed = discord.Embed(title="Salvator Version Info", description='', color=0x239B56)
+        verEmbed = discord.Embed(title="Salvator Version Info", description='', color=0xe14414)
         verEmbed.add_field(name='Version', value=data['sVersion'], inline='true')
         verEmbed.add_field(name='Release Date', value=data['releaseDate'], inline='true')
         verEmbed.add_field(name='Have Issues?', value='Let us know at our GitHub page!\n https://github.com/Grick-Heart-Project/Grick-Heart', inline='false')
@@ -31,8 +31,8 @@ class Tools(Cog):
         """
         Grabs bot invite link/support server link
         """
-        inviteEmbed = discord.Embed(title='Salvator Invite Links', color=0x239B56)
-        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}}&scope=bot&permissions=335957072', inline=True)
+        inviteEmbed = discord.Embed(title='Salvator Invite Links', color=0xe14414)
+        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&scope=bot&permissions=335957072', inline=True)
         inviteEmbed.add_field(name='Support Server Invite', value='https://discord.gg/myJh5hkjpS')
         inviteEmbed.set_footer(text=f'Current Bot Version: v{release}')
         await ctx.send(embed=inviteEmbed)
@@ -48,7 +48,7 @@ class Tools(Cog):
         hydro_mention: str = hydro.mention
         eyes_mention: str = eyes.mention
         zero_mention: str = zero.mention
-        creditsEmbed = discord.Embed(title='Grick Heart Credits', color=0x239B56)
+        creditsEmbed = discord.Embed(title='Salvator Credits', color=0xe14414)
         creditsEmbed.add_field(name='Developer', value=hydro_mention)
         creditsEmbed.add_field(name='Developer', value=zero_mention)
         creditsEmbed.add_field(name='Bot Framework Developer', value=eyes_mention)
