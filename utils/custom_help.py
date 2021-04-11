@@ -1,5 +1,16 @@
+from utils.bot_class import get_prefix
 from discord.ext import commands
 import discord
+import json
+
+from utils.config import load_config
+from utils.models import get_from_db
+
+config = load_config()
+
+with open('release.json') as f:
+    data = json.load(f)
+    release = data['sVersion']
 
 
 class EmbedHelpCommand(commands.HelpCommand):
@@ -9,38 +20,32 @@ class EmbedHelpCommand(commands.HelpCommand):
     2. It doesn't DM users. To do this, you have to override `get_destination`. It's simple.
     Other than those two things this is a basic skeleton to get you started. It should
     be simple to modify if you desire some other behaviour.
-
     To use this, pass it to the bot constructor e.g.:
-
     bot = commands.Bot(help_command=EmbedHelpCommand())
     """
-    # Set the embed colour here
-    COLOUR = discord.Colour.blurple()
+    COLOUR = 0xe14414
 
     def get_ending_note(self):
         return 'Use {0}{1} [command] for more info on a command.'.format(self.clean_prefix, self.invoked_with)
 
     def get_command_signature(self, command):
-        return '{0.qualified_name} {0.signature}'.format(command)
+        return '{0}{1} {2}'.format(self.clean_prefix, command.qualified_name, command.signature)
 
     async def send_bot_help(self, mapping):
-        embed = discord.Embed(title='Bot Commands', colour=self.COLOUR)
-        description = self.context.bot.description
-        if description:
-            embed.description = description
-
+        embed = discord.Embed(title="Salvator Help", color=self.COLOUR)
+        if self.context.bot.description:
+            embed.description = self.context.bot.description
         for cog, commands in mapping.items():
-            name = 'No Category' if cog is None else cog.qualified_name
             filtered = await self.filter_commands(commands, sort=True)
-            if filtered:
-                value = '\u2002'.join(c.name for c in commands)
-                if cog and cog.description:
-                    value = '{0}\n{1}'.format(cog.description, value)
+            command_signatures = [f"{self.get_command_signature(c)} - {c.short_doc}" for c in filtered]
+            if command_signatures:
+                cog_name = getattr(cog, "qualified_name", "No Category")
+                if (cog_name == 'Jishaku'): continue
+                embed.add_field(name=cog_name, value="\n".join(command_signatures), inline=False)
 
-                embed.add_field(name=name, value=value)
-
+        channel = self.get_destination()
         embed.set_footer(text=self.get_ending_note())
-        await self.get_destination().send(embed=embed)
+        await channel.send(embed=embed)
 
     async def send_cog_help(self, cog):
         embed = discord.Embed(title='{0.qualified_name} Commands'.format(cog), colour=self.COLOUR)

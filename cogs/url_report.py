@@ -12,7 +12,9 @@ with open('ricks.json') as f:
 class ReportCog(Cog):
     @commands.command(aliases=['ur', 'report', 'urladd', 'add'])
     async def urlreport(self, ctx: MyContext, *, url):
-        # TODO: Fix this (this command is not functional)
+        """
+        Report a new url to Salvator
+        """
         with open('ricks.json') as f:
             ricksData = json.load(f)
         ricksData.append(url)
