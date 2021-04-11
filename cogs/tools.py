@@ -32,7 +32,7 @@ class Tools(Cog):
         Grabs bot invite link/support server link
         """
         inviteEmbed = discord.Embed(title='Salvator Invite Links', color=0xe14414)
-        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&scope=bot&permissions=335957072', inline=True)
+        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&scope=bot&permissions=872934480', inline=True)
         inviteEmbed.add_field(name='Support Server Invite', value='https://discord.gg/myJh5hkjpS')
         inviteEmbed.set_footer(text=f'Current Bot Version: v{release}')
         await ctx.send(embed=inviteEmbed)
