@@ -22,7 +22,7 @@ class Tools(Cog):
         verEmbed = discord.Embed(title="Salvator Version Info", description='', color=0xe14414)
         verEmbed.add_field(name='Version', value=data['sVersion'], inline='true')
         verEmbed.add_field(name='Release Date', value=data['releaseDate'], inline='true')
-        verEmbed.add_field(name='Have Issues?', value='Let us know at our GitHub page!\n https://github.com/Grick-Heart-Project/Grick-Heart', inline='false')
+        verEmbed.add_field(name='Have Issues?', value='Let us know at our GitHub page!\n https://github.com/Salvator-Discord-Bot/Salvator', inline='false')
         verEmbed.add_field(name='System Info', value=f'Running Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro} on {sys.platform}', inline='true')
         await ctx.send(embed=verEmbed)
 
@@ -32,7 +32,7 @@ class Tools(Cog):
         Grabs bot invite link/support server link
         """
         inviteEmbed = discord.Embed(title='Salvator Invite Links', color=0xe14414)
-        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&scope=bot&permissions=335957072', inline=True)
+        inviteEmbed.add_field(name='Bot Invite', value=f'https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&scope=bot&permissions=872934480', inline=True)
         inviteEmbed.add_field(name='Support Server Invite', value='https://discord.gg/myJh5hkjpS')
         inviteEmbed.set_footer(text=f'Current Bot Version: v{release}')
         await ctx.send(embed=inviteEmbed)
