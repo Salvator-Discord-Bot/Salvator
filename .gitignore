@@ -2,3 +2,4 @@ all.log
 errors.log
 config.toml
 __pycache__/
+/venv/

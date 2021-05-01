@@ -20,6 +20,6 @@ class ReportCog(Cog):
         ricksData.append(url)
         with open('ricks.json', 'w') as outfile:
             json.dump(ricksData, outfile)
-        await ctx.send(f'URL {url} added to list of Rick-Roll URLs')
+        await ctx.send(f'URL <{url}> added to list of Rick-Roll URLs')
 
 setup = ReportCog.setup
