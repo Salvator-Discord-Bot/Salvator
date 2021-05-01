@@ -24,6 +24,7 @@ class MyBot(AutoShardedBot):
         self.commands_used = collections.Counter()
         self.uptime = datetime.datetime.utcnow()
         self.shards_ready = set()
+        self.color = 0xe14414
         self.support_server_invite = "https://discord.gg/myJh5hkjpS"
         self._client_session: Optional[aiohttp.ClientSession] = None
         asyncio.ensure_future(self.async_setup())

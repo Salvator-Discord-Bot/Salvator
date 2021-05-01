@@ -70,7 +70,7 @@ class DatabaseCommands(Cog):
         Changes/views the rick roll response
         """
         db_guild = await get_from_db(ctx.guild)
-        if (value != 0):
+        if value != 0:
             db_guild.rickpref = int(value)
         await db_guild.save()
 

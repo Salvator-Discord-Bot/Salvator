@@ -13,7 +13,6 @@ from babel import dates
 from discord.ext import commands
 
 import utils
-from utils import checks, api
 from utils.bot_class import MyBot
 from utils.cog_class import Cog
 from utils.ctx_class import MyContext
@@ -224,7 +223,7 @@ class CommandErrorHandler(Cog):
                 elif isinstance(exception.original, discord.errors.NotFound):
                     message = _("I can't find your original message, Discord may be having issues! Try again.")
                 else:
-                    message = _("There was an error running the specified command‽ This error has been logged.")    
+                    message = _("There was an error running the specified command‽ This error has been logged.")
                     # we want the original instead of the CommandError one
                     await submit_error_message(exception.original, "unknown thing", self.bot, ctx)
                     # ctx.logger.error("".join(traceback.format_exception(type(exception),

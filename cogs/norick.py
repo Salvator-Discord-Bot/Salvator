@@ -19,7 +19,7 @@ class NoRickCog(Cog):
         if len(message.content) > 0:
             for word in message.content.split():
                 if word in url_list:
-                    if (db_guild.rickpref == 2):
+                    if db_guild.rickpref == 2:
                         await message.reply(':octagonal_sign: WARNING: This is a Rick-Roll. Proceed with caution...')
                     else:
                         await message.channel.send(f'Hey {message.author.mention}, that wasn\'t very nice of you! (Message deleted was a Rick-Roll)', delete_after=60)
